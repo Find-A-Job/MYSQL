@@ -41,5 +41,12 @@
 > mysql> load data local infile "filePath" into table tableName;
 
 > filePath是文件路径，tableName是表名
+```
+LINES TERMINATED BY '\r\n';
+在不同的系统中使用不同的换行符，
+\*unix'\n', 
+On an Apple machine running macOS '\r', 
+windows '\r\n'
+```
 
 
