@@ -32,11 +32,32 @@
 > mysql> create table tableName (field1 type, field2 type, field3 type, ...);
 
 > tableName表示表名，field1表示字段名， type表示字段类型（常见有varchar(x),char(x),date,x取值1~65535），...表示还可以继续添加
+```
+CREATE TABLE IF NOT EXISTS `runoob_tbl`(
+   `runoob_id` INT UNSIGNED AUTO_INCREMENT,
+   `runoob_title` VARCHAR(100) NOT NULL,
+   `runoob_author` VARCHAR(40) NOT NULL,
+   `submission_date` DATE,
+    id int not null default 0 primary key,       //非null，默认值0， 主键，
+    name char(20) default '1',                   // 默认值 '1'
+   PRIMARY KEY ( `runoob_id` ),
+   primary key (id,name)                         // 复合主键
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+userid int(4) primary key not null auto_increment       //创建主键非空并自增
+
+primary key    标识该属性为该表的主键，可以唯一的标识对应的元组
+foreign key    标识该属性为该表的外键，是与之联系的某表的主键
+not null       标识该属性不能为空
+unique         标识该属性的值是唯一的
+auto_increment 标识该属性的值自动增加
+default        为该属性设置默认值
+```
 
 * 向xxx表中插入一条数据
-> mysql> insert into tablename values ("value1", "value2", "value3", ...);
+> mysql> insert into tablename (field1, field2, field3, ...) values ("value1", "value2", "value3", ...);
 
-> **tablename**表示表名，**value1**表示值。insert，into，values是关键字
+> **tablename**表示表名， **field1**表示字段名，**value1**表示值。insert，into，values是关键字
 
 * 向xxx表中导入数据
 > mysql> load data local infile "filePath" into table tableName;
@@ -115,6 +136,22 @@ SELECT p1.name, p1.sex, p2.name, p2.sex, p1.species
 ```
 
 ---
+### 增加，修改，删除表字段
+* ALTER TABLE tableName ADD field INT ...
+> **tableName**表示表名，**field**表示字段名， `...`表示其他约束
+```
+ALTER TABLE tab ADD i INT not null default 0;
+给表tab添加一个(名为i，类型为int，非空，默认值为0的)字段
+
+
+```
+|类型 	|字节 	|格式 	|用途 	|是否支持设置系统默认值
+|:----:|:----:|:----:|:----:|:----:|
+|date 	|3 	|YYYY-MM-DD 	|日期值 	|不支持
+|time 	|3 	|HH:MM:SS 	|时间值或持续时间 	|不支持
+|year 	|1 	|YYYY 	|年份 	|不支持
+|datetime 	|8 	|YYYY-MM-DD HH:MM:SS 	|日期和时间混合值 	|不支持
+|timestamp 	|4 	|YYYYMMDD HHMMSS 	|混合日期和时间，可作时间戳 	|支持
 ### Using User-Defined Variables
 ### 其他
 
