@@ -31,3 +31,15 @@
 > mysql> create table tableName (field1 type, field2 type, field3 type, ...);
 
 > tableName表示表名，field1表示字段名， type表示字段类型（常见有varchar(x),char(x),date,x取值1~65535），...表示还可以继续添加
+
+* 向xxx表中插入一条数据
+> mysql> insert into tablename values ("value1", "value2", "value3", ...);
+
+> tablename表示表名，value1表示值。insert，into，values是关键字
+
+* 向xxx表中导入数据
+> mysql> load data local infile "filePath" into table tableName;
+
+> filePath是文件路径，tableName是表名
+
+
