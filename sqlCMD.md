@@ -145,13 +145,28 @@ ALTER TABLE tab ADD i INT not null default 0;
 
 
 ```
-|类型 	|字节 	|格式 	|用途 	|是否支持设置系统默认值
+|类型 	|字节 	|格式 	|用途 	|是否支持设置系统默认值|
 |:----:|:----:|:----:|:----:|:----:|
-|date 	|3 	|YYYY-MM-DD 	|日期值 	|不支持
-|time 	|3 	|HH:MM:SS 	|时间值或持续时间 	|不支持
-|year 	|1 	|YYYY 	|年份 	|不支持
-|datetime 	|8 	|YYYY-MM-DD HH:MM:SS 	|日期和时间混合值 	|不支持
-|timestamp 	|4 	|YYYYMMDD HHMMSS 	|混合日期和时间，可作时间戳 	|支持
+|date 	|3 	|YYYY-MM-DD 	|日期值 	|不支持|
+|time 	|3 	|HH:MM:SS 	|时间值或持续时间 	|不支持|
+|year 	|1 	|YYYY 	|年份 	|不支持|
+|datetime 	|8 	|YYYY-MM-DD HH:MM:SS 	|日期和时间混合值 	|不支持|
+|timestamp 	|4 	|YYYYMMDD HHMMSS 	|混合日期和时间，可作时间戳 	|支持|
+> 约束 `alter table tableName add field timestamp not null default now();`默认值使用函数
+
+|函数 	|描述|
+|----|----|
+|NOW() 	|返回当前的日期和时间|
+|CURDATE() 	|返回当前的日期|
+|CURTIME() 	|返回当前的时间|
+|DATE() 	|提取日期或日期/时间表达式的日期部分|
+|EXTRACT() 	|返回日期/时间按的单独部分|
+|DATE_ADD() 	|给日期添加指定的时间间隔|
+|DATE_SUB() 	|从日期减去指定的时间间隔|
+|DATEDIFF() 	|返回两个日期之间的天数|
+|DATE_FORMAT() 	|用不同的格式显示日期/时间|
+
+---
 ### Using User-Defined Variables
 ### 其他
 
