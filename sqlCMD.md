@@ -1,5 +1,6 @@
 常用的命令
 ===
+* golang版的mysql驱动https://github.com/go-sql-driver/mysql
 ### 命令行操作mysql
 * 显示所有数据库
 > mysql> show databases;
@@ -68,5 +69,53 @@ select column from tableName where row
 ```
 > **column** 表示筛选列，`select name, sex, other from xxx`多个字段用逗号隔开，也可用\*代指全部字段
 
+> **tableName** 表示所查询的表
+
 > **row** 表示筛选行，用各种条件。`'where name = "abc"', 'where birrh >= "1998-01-01"'`
+
+* 排序 
+```
+select * from tableName order by field
+select * from tableName order by field1, field2
+select * from tableName order by field desc
+select * from tableName order by field1, field2 desc
+```
+
+* 内置函数
+```
+TIMESTAMPDIFF(unit,datetime_expr1,datetime_expr2)
+```
+
+* 统计行
+```
+SELECT COUNT(*) FROM tableName;
+SELECT owner, COUNT(*) FROM pet GROUP BY owner;
+SELECT species, sex, COUNT(*) FROM pet GROUP BY species, sex;
+SELECT species, sex, COUNT(*) FROM pet
+       WHERE sex IS NOT NULL
+       GROUP BY species, sex;
+SET sql_mode = 'ONLY_FULL_GROUP_BY';
+SET sql_mode = '';
+```
+
+* 多表联合查找
+```
+SELECT pet.name,
+       TIMESTAMPDIFF(YEAR,birth,date) AS age,
+       remark
+       FROM pet INNER JOIN event
+         ON pet.name = event.name
+       WHERE event.type = 'litter';
+       
+SELECT p1.name, p1.sex, p2.name, p2.sex, p1.species
+       FROM pet AS p1 INNER JOIN pet AS p2
+         ON p1.species = p2.species
+         AND p1.sex = 'f' AND p1.death IS NULL
+         AND p2.sex = 'm' AND p2.death IS NULL;
+```
+
+---
+### Using User-Defined Variables
+### 其他
+
 
