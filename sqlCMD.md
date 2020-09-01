@@ -27,7 +27,7 @@
 * 新建xxx表
 `mysql> create table tableName (field1 type, field2 type, field3 type, ...);`
 
-> tableName表示表名，field1表示字段名， type表示字段类型（常见有varchar(x),char(x),date,x取值1~65535），...表示还可以继续添加
+> tableName表示表名，field1表示字段名， type表示字段类型（常见有varchar(x),char(x),date,x取值1~65535），`...`表示还可以继续添加
 ```
 CREATE TABLE IF NOT EXISTS `runoob_tbl`(
    `runoob_id` INT UNSIGNED AUTO_INCREMENT,
@@ -179,6 +179,7 @@ ALTER TABLE tab ADD i INT not null default 0;
 |lines starting by 'str'：|设置每行数据开头的字符，可以为单个或多个字符。默认情况下不使用任何字符。|
 |lines terminated by 'char'：|设置每行数据结尾的字符，可以为单个或多个字符。默认值是"\n"。|
 
+`select * from user into outfile 'e:/1.txt' fields terminated by ',' enclosed by '"' optionally enclosed by '|' escaped by '\\' lines starting by '|' terminated by '|';`
 > `show variables like "%xxx%";`显示mysql变量,有时候`-`是`_`
 
 ---
