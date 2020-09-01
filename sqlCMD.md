@@ -3,33 +3,29 @@
 * golang版的mysql驱动https://github.com/go-sql-driver/mysql
 ### 命令行操作mysql
 * 显示所有数据库
-> mysql> show databases;
+`mysql> show databases;`
 
 * 显示当前选择的数据库
-> mysql> select database();
-
+`mysql> select database();`
 > You can see at any time which database is currently selected using SELECT DATABASE().
 
 * 显示当前数据库下所有表
-> mysql> show tables;
+`mysql> show tables;`
 
 * 显示xxx表的结构
-> mysql> describe tableName;
-
+`mysql> describe tableName;`
 > tableName代指表名，非关键字
 
 * 创建xxx数据库
-> mysql> create database dbName;
-
+`mysql> create database dbName;`
 > dbName代指数据库名，非关键字
 
 * 使用xxx数据库
-> mysql> use dbName;
-
+`mysql> use dbName;`
 > dbName代指数据库名，非关键字
 
 * 新建xxx表
-> mysql> create table tableName (field1 type, field2 type, field3 type, ...);
+`mysql> create table tableName (field1 type, field2 type, field3 type, ...);`
 
 > tableName表示表名，field1表示字段名， type表示字段类型（常见有varchar(x),char(x),date,x取值1~65535），...表示还可以继续添加
 ```
@@ -60,8 +56,7 @@ default        为该属性设置默认值
 > **tablename**表示表名， **field1**表示字段名，**value1**表示值。insert，into，values是关键字，可插入多条数据，圆括号包裹，逗号隔开
 
 * 向xxx表中导入数据
-> mysql> load data local infile "filePath" into table tableName;
-
+`mysql> load data local infile "filePath" into table tableName;`
 > **filePath**是文件路径，**tableName**是表名
 ```
 LINES TERMINATED BY '\r\n';
@@ -72,14 +67,18 @@ windows '\r\n'
 ```
 
 * 删除xxx表
-> mysql> delete from tableName;
-
+`mysql> delete from tableName;`
 > **tableName**表示表名
 
 * 更新xxx表中某条数据
-> mysql> update tableName set field = "value" where ...
-
+`mysql> update tableName set field = "value" where ...;`
 > **tableName**表示表名，**field**表示字段名，**value**表示新的值，`...`表示筛选条件
+
+* 删除某条数据
+`mysql> delete from tableName where ...;`
+> **tableName**表示表名，`...`表示筛选条件
+
+
 
 
 ---
@@ -184,6 +183,13 @@ ALTER TABLE tab ADD i INT not null default 0;
 
 ---
 ### Using User-Defined Variables
+---
+### 索引
+---
 ### 事务
+---
+### sql注入
+---
+###
 
 
