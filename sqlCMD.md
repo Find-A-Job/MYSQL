@@ -54,10 +54,10 @@ auto_increment 标识该属性的值自动增加
 default        为该属性设置默认值
 ```
 
-* 向xxx表中插入一条数据
-> mysql> insert into tablename (field1, field2, field3, ...) values ("value1", "value2", "value3", ...);
+* 向xxx表中插入~~一条数据~~多条数据
+> mysql> insert into tablename (field1, field2, field3, ...) values ("value1", "value2", "value3", ...), (...);
 
-> **tablename**表示表名， **field1**表示字段名，**value1**表示值。insert，into，values是关键字
+> **tablename**表示表名， **field1**表示字段名，**value1**表示值。insert，into，values是关键字，可插入多条数据，圆括号包裹，逗号隔开
 
 * 向xxx表中导入数据
 > mysql> load data local infile "filePath" into table tableName;
@@ -167,7 +167,23 @@ ALTER TABLE tab ADD i INT not null default 0;
 |DATE_FORMAT() 	|用不同的格式显示日期/时间|
 
 ---
+### 导入导出数据
+`[select 语句] into outfile [fileName] [导出参数]`
+
+导出文件名 是目标文件的完整路径。由于mysql账户的权限问题
+|导出参数|介绍|
+|----|----|
+|fields terminated by 'str'：|设置字段之间的分隔符，默认值是"\t"。|
+|fields enclosed by 'char'：|设置包括住字段的值的符号，如单引号、双引号等，默认情况下不使用任何符号。|
+|fields optionally enclosed by 'char'：|设置括住CHAR、VARCHAR和TEXT等字符型字段的分隔符，默认情况下不使用任何符号。|
+|fields escaped by 'char'：|设置转义字符，默认值为"\"。|
+|lines starting by 'str'：|设置每行数据开头的字符，可以为单个或多个字符。默认情况下不使用任何字符。|
+|lines terminated by 'char'：|设置每行数据结尾的字符，可以为单个或多个字符。默认值是"\n"。|
+
+> `show variables like "%xxx%";`显示mysql变量,有时候`-`是`_`
+
+---
 ### Using User-Defined Variables
-### 其他
+### 事务
 
 
