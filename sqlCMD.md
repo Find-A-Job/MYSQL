@@ -48,6 +48,12 @@ not null       标识该属性不能为空
 unique         标识该属性的值是唯一的
 auto_increment 标识该属性的值自动增加
 default        为该属性设置默认值
+
+create table test1 ( 
+    field_name int comment '字段的注释' 
+)comment='表的注释';
+show  create  table  test1;//查看表注释
+show  full  columns  from  test1;//查看字段注释
 ```
 
 * 向xxx表中插入~~一条数据~~多条数据
@@ -67,7 +73,7 @@ windows '\r\n'
 ```
 
 * 删除xxx表
-`mysql> delete from tableName;`
+`mysql> drop table tableName;`
 > **tableName**表示表名
 
 * 更新xxx表中某条数据
