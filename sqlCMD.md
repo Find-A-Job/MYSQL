@@ -17,15 +17,19 @@
 > tableName代指表名，非关键字
 
 * 创建xxx数据库
-`mysql> create database dbName;`
-> dbName代指数据库名，非关键字
+`mysql> create database dbName DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;`
+> dbName代指数据库名，非关键字，不要用mysql的utf8，有问题https://www.infoq.cn/article/in-mysql-never-use-utf8-use-utf8
+
+* 删除xxx数据库
+`mysql> drop database dbName`
+> dbName代指数据库名
 
 * 使用xxx数据库
 `mysql> use dbName;`
 > dbName代指数据库名，非关键字
 
 * 新建xxx表
-`mysql> create table tableName (field1 type, field2 type, field3 type, ...);`
+`mysql> create table tableName (field1 type, field2 type, field3 type, ...) DEFAULT CHARSET=utf8mb4;`
 
 > tableName表示表名，field1表示字段名， type表示字段类型（常见有varchar(x),char(x),date,x取值1~65535），`...`表示还可以继续添加
 ```
