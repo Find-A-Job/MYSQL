@@ -152,7 +152,7 @@ SELECT p1.name, p1.sex, p2.name, p2.sex, p1.species
 ALTER TABLE tab ADD i INT not null default 0;
 给表tab添加一个(名为i，类型为int，非空，默认值为0的)字段
 
-
+mysql> ALTER TABLE tableName  DROP field;
 ```
 |类型 	|字节 	|格式 	|用途 	|是否支持设置系统默认值|
 |:----:|:----:|:----:|:----:|:----:|
